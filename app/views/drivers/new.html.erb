@@ -1,0 +1,16 @@
+<h1>New Driver</h1>
+
+<%= form_for(@driver) do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :email %>
+	<%= f.email_field :email %>
+
+	<%= f.label :phone %>
+	<%= f.phone_field :phone %>
+	
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+<% end %>
