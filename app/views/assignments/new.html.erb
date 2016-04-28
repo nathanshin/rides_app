@@ -1,0 +1,52 @@
+<h1>New Assignment</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@assignment) do |f| %>
+
+			<%= f.label :event_name %>
+			<%= f.text_field :event, class: 'form-control' %>
+
+			<%= f.label :date %>
+			<%= f.date_field :date, class: 'form-control' %>
+			
+			<div class="col-md-6">
+				<h4>Drivers</h4>
+
+				<button type="button" id="check_all_drivers">
+				    Check / Uncheck All
+				</button>
+
+				<% @drivers.each do |driver| %>
+					<%= f.label :driver, class: "checkbox inline" do %>
+						<%= f.check_box :included_drivers, {multiple: true}, driver.name, nil %>
+						<span><strong><%= driver.name %></strong></span>
+					<% end %>
+				<% end %>
+			</div>
+			
+			<div class="col-md-6">
+				<h4>Riders</h4>
+
+				<button type="button" id="check_all_riders">
+				    Check / Uncheck All
+				</button>
+
+				<% @riders.each do |rider| %>
+					<%= f.label rider.name, class: "checkbox inline" do %>
+						<%= f.check_box :included_riders, {multiple: true}, rider.name, nil %>
+						<span><strong><%= rider.name %></strong></span>					
+					<% end %>
+				<% end %>				
+			</div>
+
+			
+		  <%= f.submit "Arrange Rides!", class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+</div>
+
+<script type='text/javascript'>
+    $('#check_all_drivers').on("click", function(){ $('input[name="assignment[included_drivers][]"]').click(); });
+    $('#check_all_riders').on("click", function(){ $('input[name="assignment[included_riders][]"]').click(); });
+</script>

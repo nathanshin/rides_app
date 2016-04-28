@@ -1,17 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  phone: MyString
-  car_spots: MyString
-  address: MyString
-  geocode: MyText
-
-two:
-  name: MyString
-  email: MyString
-  phone: MyString
-  car_spots: MyString
-  address: MyString
-  geocode: MyText
+nathan:
+  name: Nate Shin
+  email: nate@utexas.edu
+  phone: 214-930-8918
+  car_spots: 3
+  address: 911 W 21st St, Austin, TX 78705
+  geocode: <%= YAML::dump('911 W 21st St, Austin, TX 78705') %>
+sojung:
+  name: Sojung Uhm
+  email: soj@gmail.com
+  phone: 469-230-8128
+  car_spots: 2
+  address: 911 W 21st St, Austin, TX 78705
+  geocode: <%= YAML::dump('911 W 21st St, Austin, TX 78705') %>

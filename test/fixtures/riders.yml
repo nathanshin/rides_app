@@ -1,15 +1,43 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
-  phone: MyString
-  address: MyString
-  geocode: MyText
+nathan:
+  name: Nathan Shin
+  email: naaathan@utexas.edu
+  phone: 214-930-8918
+  address: 911 W 21st St, Austin, TX 78705
+  geocode: <%= YAML::dump('911 W 21st St, Austin, TX 78705') %>
 
-two:
-  name: MyString
-  email: MyString
-  phone: MyString
-  address: MyString
-  geocode: MyText
+sojung:
+  name: Sojung Uhm
+  email: soj@gmail.com
+  phone: 469-230-8128
+  address: 911 W 21st St, Austin, TX 78705
+  geocode: <%= YAML::dump('911 W 21st St, Austin, TX 78705') %>
+
+david:
+  name: David Kim
+  email: dav@gmail.com
+  phone: 469-230-8128
+  address: 2704 Rio Grande St., Austin, TX 78705
+  geocode: <%= YAML::dump('2704 Rio Grande St., Austin, TX 78705') %>
+
+daniel:
+  name: Daniel Chang
+  email: dan@gmail.com
+  phone: 469-230-8128
+  address: 911 W 21st St, Austin, TX 78705
+  geocode: <%= YAML::dump('911 W 21st St, Austin, TX 78705') %>
+
+brian:
+  name: Brian Shin
+  email: bri@gmail.com
+  phone: 469-230-8128
+  address: 2704 Rio Grande St., Austin, TX 78705
+  geocode: <%= YAML::dump('2704 Rio Grande St., Austin, TX 78705') %>
+
+joseph:
+  name: Joseph Hurh
+  email: joe@gmail.com
+  phone: 469-230-8128
+  address: 911 W 21st St, Austin, TX 78705
+  geocode: <%= YAML::dump('911 W 21st St, Austin, TX 78705') %>
