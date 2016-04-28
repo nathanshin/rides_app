@@ -36,6 +36,7 @@ textarea {
   margin: 0px auto;
 }
 
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -68,6 +69,18 @@ p {
   line-height: 1.7em;
 }
 
+#assignment_navs {
+  letter-spacing: 0.5px;
+}
+
+#user_name {
+  text-decoration: underline;
+}
+
+#user_details p {
+  font-size: 0.9em;
+  line-height: 80%;
+}
 
 /* forms */
 

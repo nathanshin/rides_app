@@ -1,0 +1,20 @@
+<h1>Drivers List</h1>
+<h2><strong><%= link_to "Add new driver", new_driver_path %></strong></h2>
+
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="center">
+			<% @drivers.each do |driver| %>
+				<h4 id="user_name"><%= driver.name %></h4>
+				<div id="user_details">
+					<p><strong>Phone Number: </strong><%= driver.phone %></p>
+					<p><strong>Email: </strong><%= driver.email %></p>
+					<p><strong>Address: </strong><%= driver.address %></p>
+				</div>
+				<hr>
+			<% end %>
+		</div>
+		<p><%= link_to "back", assignments_path %></p> 
+	</div>
+</div>

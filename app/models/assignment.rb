@@ -9,9 +9,8 @@ class Assignment < ActiveRecord::Base
 	serialize :included_drivers
 	serialize :included_riders
 
+	before_save :arrange_rides
 	delegate :arrange_rides, to: :arranger
-
-
 
 	def arranger
 		Arranger.new(self)

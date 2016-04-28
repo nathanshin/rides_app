@@ -1,19 +1,21 @@
 class Arranger
 	def initialize(assignment)
 		@assignment = assignment
-		@assignment.assignments = []
-		@drivers = []
-		@riders = []
-		@included_drivers = assignment.included_drivers
-		@included_riders = assignment.included_riders
+		@assignments = assignment.assignments = []
+		@included_drivers = assignment.included_drivers || []
+		@included_riders = assignment.included_riders || []
 	end
 
 	def arrange_rides
+		@drivers = []
+		@riders = []
+		
 		pull_drivers_from_database
 		pull_riders_from_database
 		assign_riders_to_drivers
 	end
 
+	# Maybe change the implementation to map?
 	def pull_drivers_from_database
 		@included_drivers.each do |included_driver|
 			if (driver = Driver.find_by(name: included_driver))
@@ -51,5 +53,11 @@ class Arranger
 			assignments = {name: driver.name, riders: assigned_riders}
 			@assignment.assignments << assignments
 		end
+
+		if !@riders.empty?
+			riders_remaining = {name: "Riders Remaining", riders: @riders.map {|rider| rider.name} }
+			@assignment.assignments << riders_remaining
+		end
+
 	end
 end

@@ -16,7 +16,7 @@
 				<button type="button" id="check_all_drivers">
 				    Check / Uncheck All
 				</button>
-
+				
 				<% @drivers.each do |driver| %>
 					<%= f.label :driver, class: "checkbox inline" do %>
 						<%= f.check_box :included_drivers, {multiple: true}, driver.name, nil %>

@@ -1,6 +1,14 @@
 class DriversController < ApplicationController
 	include DriversHelper
 
+	def index
+		@drivers = Driver.order('name ASC')
+	end
+
+	def show
+		@driver = Driver.find(params[:id])
+	end
+
 	def new
 		@driver = Driver.new
 	end

@@ -1,5 +1,9 @@
 <h1>Ride assignments</h1>
-<h2><strong><%= link_to "Make new assignments", new_assignment_path %></strong></h2>
+<h2 id="assignment_navs">
+	<strong><%= link_to "Make new assignments", new_assignment_path %> | </strong>
+	<strong><%= link_to "View drivers", drivers_path %></strong> | 
+	<strong><%= link_to "View riders", riders_path %></strong>
+</h2>
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
