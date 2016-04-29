@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900);
 
 /* mixins, variables, etc. */
 
@@ -14,7 +15,6 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
 }
 
 section {
@@ -36,14 +36,32 @@ textarea {
   margin: 0px auto;
 }
 
+/* structure */
+
+#banner {
+  width: 700px;
+  margin: 20px auto 0px auto;
+  padding: 20px;
+  background-color: #ffdc38;
+
+}
+
+#events h2, h3 {
+  line-height: 0.5;
+}
 
 /* typography */
+
+body {
+  font-family: 'Lato', sans-serif;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
 h1 {
+  font-weight: bold;
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 20px;
@@ -61,7 +79,6 @@ h2 {
 
 h3 {
   text-align: center;
-  font-style: italic;
 }
 
 p {
@@ -70,7 +87,7 @@ p {
 }
 
 #assignment_navs {
-  letter-spacing: 0.5px;
+  letter-spacing: 0.35px;
 }
 
 #user_name {
@@ -80,6 +97,41 @@ p {
 #user_details p {
   font-size: 0.9em;
   line-height: 80%;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  text-align: center;
+  margin-top: 45px;
+  padding-top: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-top: 2px solid $gray-medium-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
 }
 
 /* forms */

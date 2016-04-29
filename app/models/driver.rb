@@ -1,4 +1,6 @@
 class Driver < ActiveRecord::Base
+	scope :ordered_by_name, -> { order(name: :asc) }
+
 	before_save :update_geocode
 	before_save { email.downcase! }
 
@@ -17,10 +19,5 @@ class Driver < ActiveRecord::Base
 
 	def geocoder
 		Geocoder.new(self)
-	end
-
-	def self.drivers_list
-		drivers = Driver.all
-		drivers.to_a
 	end
 end

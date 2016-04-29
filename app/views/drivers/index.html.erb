@@ -1,16 +1,18 @@
 <h1>Drivers List</h1>
 <h2><strong><%= link_to "Add new driver", new_driver_path %></strong></h2>
-
+<hr>
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="center">
 			<% @drivers.each do |driver| %>
-				<h4 id="user_name"><%= driver.name %></h4>
+				<h4 id="user_name <%= name_to_attribute(driver.name) %>"><%= driver.name %></h4>
 				<div id="user_details">
 					<p><strong>Phone Number: </strong><%= driver.phone %></p>
 					<p><strong>Email: </strong><%= driver.email %></p>
 					<p><strong>Address: </strong><%= driver.address %></p>
+					<%= link_to "edit" %> | 
+					<%= link_to "delete" %>
 				</div>
 				<hr>
 			<% end %>

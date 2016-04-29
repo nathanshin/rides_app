@@ -1,6 +1,6 @@
 class RidersController < ApplicationController
 	def index
-		@riders = Rider.all
+		@riders = Rider.ordered_by_name
 	end
 
 	def show

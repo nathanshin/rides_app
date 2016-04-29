@@ -1,12 +1,12 @@
 <h1>Riders List</h1>
 <h2><strong><%= link_to "Add new rider", new_rider_path %></strong></h2>
-
+<hr>
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="center">
 			<% @riders.each do |rider| %>
-				<h4 id="user_name"><%= rider.name %></h4>
+				<h4 id="<%= name_to_attribute(rider.name) %>"><%= rider.name %></h4>
 				<div id="user_details">
 					<p><strong>Phone Number: </strong><%= rider.phone %></p>
 					<p><strong>Email: </strong><%= rider.email %></p>

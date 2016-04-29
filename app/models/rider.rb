@@ -1,4 +1,6 @@
 class Rider < ActiveRecord::Base
+	scope :ordered_by_name, -> { order(name: :asc) }
+
 	attr_accessor :distance_to_driver
 
 	before_save :update_geocode

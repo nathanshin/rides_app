@@ -1,4 +1,6 @@
 class Assignment < ActiveRecord::Base
+	scope :ordered_by_date, -> { order(date: :desc) } 
+	
 	attr_accessor :included_drivers
 	attr_accessor :included_riders
 
