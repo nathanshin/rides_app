@@ -4,8 +4,8 @@ class AssignmentTest < ActiveSupport::TestCase
 	def setup
 		@assignment = Assignment.new(event: "ACTS Sunday", 
 																 date: "2016-02-08", 
-																 included_drivers: ["Nathan Shin", "Sojung Uhm"], 
-																 included_riders: ["Nathan Shin", "Sojung Uhm", "David Kim", "Daniel Chang", "Brian Shin", "Joseph Hurh"])
+																 included_drivers: ["Nathan Shin"], 
+																 included_riders: ["Sojung Uhm"])
 	end
 
 	test "assignment should be valid" do
@@ -19,6 +19,16 @@ class AssignmentTest < ActiveSupport::TestCase
 
 	test "date should be present" do
 		@assignment.date = "   "
+		assert_not @assignment.valid?
+	end
+
+	test "at least 1 driver should be checked" do
+		@assignment.included_drivers = []
+		assert_not @assignment.valid?
+	end
+
+	test "at least 1 rider should be checked" do
+		@assignment.included_riders = []
 		assert_not @assignment.valid?
 	end
 

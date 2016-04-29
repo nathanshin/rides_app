@@ -7,6 +7,7 @@
 	<div class="col-md-12">
 		<% @assignment.assignments.each do |assignment| %>
 			<strong><%= assignment[:name] %>:</strong>
+
 			<% assignment[:riders].each do |rider| %>
 				<a href="/riders.html#<%= name_to_attribute(rider.name) %>">
 					<%= rider.name %>

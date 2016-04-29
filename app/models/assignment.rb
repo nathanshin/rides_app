@@ -6,6 +6,8 @@ class Assignment < ActiveRecord::Base
 
 	validates :event, presence: true
 	validates :date, presence: true
+	validates :included_drivers, presence: {message: "must check at least 1 driver"}
+	validates :included_riders, presence: true
 
 	serialize :assignments
 	serialize :included_drivers

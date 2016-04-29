@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
 	def index
-		@assignments = Assignment.ordered_by_date.page(params[:page]).per_page(4)
+		@assignments = Assignment.ordered_by_date.page(params[:page]).per_page(5)
 	end
 
 	def show

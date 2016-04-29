@@ -3,6 +3,18 @@
 <div class="row">
 	<div class="col-md-12">
 		<%= form_for(@assignment) do |f| %>
+			<% if @assignment.errors.any? %>
+				<div id="error_explanation">
+					<div class="alert alert-danger">
+						The form contains <%= pluralize(@assignment.errors.count, "error") %>.
+					</div>
+					<ul>
+						<% @assignment.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
 
 			<%= f.label :event_name %>
 			<%= f.text_field :event, class: 'form-control' %>
