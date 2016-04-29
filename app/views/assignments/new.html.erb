@@ -1,7 +1,7 @@
-<h1>New Assignment</h1>
+<%= provide(:title, "New Assignment") %>
 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-12">
 		<%= form_for(@assignment) do |f| %>
 
 			<%= f.label :event_name %>
@@ -10,38 +10,43 @@
 			<%= f.label :date %>
 			<%= f.date_field :date, class: 'form-control' %>
 			
-			<div class="col-md-6">
-				<h4>Drivers</h4>
+			<div id="checklist">
+				<div class="col-md-6">
+					<h4>Drivers</h4>
+					
+					<button type="button" id="check_all_drivers" class="btn btn-secondary">
+					    Check / Uncheck All
+					</button>
+					
+					<% @drivers.each do |driver| %>
+						<%= f.label :driver, class: "checkbox inline" do %>
+							<%= f.check_box :included_drivers, {multiple: true}, driver.name, nil %>
+							<span><strong><%= driver.name %></strong></span>
+						<% end %>
+					<% end %>
 
-				<button type="button" id="check_all_drivers">
-				    Check / Uncheck All
-				</button>
+				</div>
 				
-				<% @drivers.each do |driver| %>
-					<%= f.label :driver, class: "checkbox inline" do %>
-						<%= f.check_box :included_drivers, {multiple: true}, driver.name, nil %>
-						<span><strong><%= driver.name %></strong></span>
-					<% end %>
-				<% end %>
-			</div>
-			
-			<div class="col-md-6">
-				<h4>Riders</h4>
+				<div class="col-md-6" id="rider-checklist">
+					<h4>Riders</h4>
 
-				<button type="button" id="check_all_riders">
-				    Check / Uncheck All
-				</button>
+					<button type="button" id="check_all_riders" class="btn btn-secondary">
+					    Check / Uncheck All
+					</button>
 
-				<% @riders.each do |rider| %>
-					<%= f.label rider.name, class: "checkbox inline" do %>
-						<%= f.check_box :included_riders, {multiple: true}, rider.name, nil %>
-						<span><strong><%= rider.name %></strong></span>					
-					<% end %>
-				<% end %>				
+					<% @riders.each do |rider| %>
+						<%= f.label rider.name, class: "checkbox inline" do %>
+							<%= f.check_box :included_riders, {multiple: true}, rider.name, nil %>
+							<span><strong><%= rider.name %></strong></span>					
+						<% end %>
+					<% end %>				
+				</div>
 			</div>
 
-			
-		  <%= f.submit "Arrange Rides!", class: 'btn btn-primary' %>
+			<div id="arrange-button"> 
+				<%= f.submit "Arrange Rides!", class: 'btn btn-primary' %>
+			</div>
+		 
 		<% end %>
 	</div>
 </div>

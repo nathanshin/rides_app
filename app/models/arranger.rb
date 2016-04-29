@@ -45,7 +45,7 @@ class Arranger
 			assigned_riders = []
 			driver[:car_spots].to_i.times do
 				if !@riders.empty?
-					assigned_riders << @riders.shift[:name]
+					assigned_riders << @riders.shift
 				else
 					break
 				end
@@ -55,7 +55,7 @@ class Arranger
 
 		# If there are riders left after assignment, put them in a "Riders Remaining" slot
 		if !@riders.empty?
-			riders_remaining = {name: "Riders Remaining", riders: @riders.map {|rider| rider.name} }
+			riders_remaining = {name: "Riders Remaining", riders: @riders }
 			@assignment.assignments << riders_remaining
 		end
 	end

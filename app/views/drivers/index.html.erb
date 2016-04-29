@@ -1,9 +1,10 @@
-<h1>Drivers List</h1>
-<h2><strong><%= link_to "Add new driver", new_driver_path %></strong></h2>
+<%= provide(:title, "Drivers List") %>
+
+<h3 class="center"><strong>Total Drivers: </strong><%= @drivers.count %></h3>
 <hr>
 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-12">
 		<div class="center">
 			<% @drivers.each do |driver| %>
 				<h4 id="user_name <%= name_to_attribute(driver.name) %>"><%= driver.name %></h4>
@@ -17,6 +18,7 @@
 				<hr>
 			<% end %>
 		</div>
-		<p><%= link_to "back", assignments_path %></p> 
+		<%= link_to "back", assignments_path %> | 
+		<%= link_to "top" %>
 	</div>
 </div>

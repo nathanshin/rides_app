@@ -1,23 +1,17 @@
-<h1>Ride Assignments</h1>
-<h2 id="assignment_navs">
-	<strong><%= link_to "Make new assignments", new_assignment_path %></strong>
-	<br><br>
-	<strong><%= link_to "View drivers", drivers_path %> | </strong>
-	<strong><%= link_to "View riders", riders_path %></strong>
-</h2>
-<hr>
-<div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<div id="events">
-			<% @assignments.each do |assignment| %>
-				<h3><%= link_to assignment.event, assignment_path(assignment) %></h3>	
-				<h2><%= assignment.date.to_formatted_s(:long) %></h2>
-				<hr>
-			<% end %>
-		</div>
+<%= provide(:title, "Ride Assignments") %>
 
-		<div class="center">
-			<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
-		</div>
-	</div>
+<h2><strong>All Events</strong></h2>
+
+<div id="events">
+	<% @assignments.each do |assignment| %>
+		<h3 id="event-name"><%= link_to assignment.event, assignment_path(assignment) %></h3>	
+		<strong><span id="location">Church, Austin, TX</span></strong>
+		<p><%= assignment.date.to_formatted_s(:long) %></p>
+		<hr>
+	<% end %>
 </div>
+
+<div class="center">
+	<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
+</div>
+

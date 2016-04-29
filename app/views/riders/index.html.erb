@@ -1,9 +1,10 @@
-<h1>Riders List</h1>
-<h2><strong><%= link_to "Add new rider", new_rider_path %></strong></h2>
+<%= provide(:title, "Riders List") %>
+
+<h3 class="center"><strong>Total Riders: </strong><%= @riders.count %></h3>
 <hr>
 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-12">
 		<div class="center">
 			<% @riders.each do |rider| %>
 				<h4 id="<%= name_to_attribute(rider.name) %>"><%= rider.name %></h4>
@@ -11,10 +12,14 @@
 					<p><strong>Phone Number: </strong><%= rider.phone %></p>
 					<p><strong>Email: </strong><%= rider.email %></p>
 					<p><strong>Address: </strong><%= rider.address %></p>
+					<%= link_to "edit" %> | 
+					<%= link_to "delete" %>
 				</div>
 				<hr>
 			<% end %>
 		</div>
-		<p><%= link_to "back", assignments_path %></p> 
+
+	<%= link_to "back", assignments_path %> | 
+	<%= link_to "top" %>
 	</div>
 </div>

@@ -1,12 +1,19 @@
-<h1><%= @assignment.event %></h1>
+<%= provide(:title, "Assigned Rides") %>
+
+<h2 id="event-title"><strong><%= @assignment.event %></strong></h2>
 <h3><%= @assignment.date.to_formatted_s(:long) %></h3>
-<hr><br>
+<hr>
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-12">
 		<% @assignment.assignments.each do |assignment| %>
 			<strong><%= assignment[:name] %>:</strong>
 			<% assignment[:riders].each do |rider| %>
-				<a href="/riders.html#<%= rider.downcase.split(' ').join('-') %>"><%= rider %></a> | 
+				<a href="/riders.html#<%= name_to_attribute(rider.name) %>">
+					<%= rider.name %>
+				</a>
+				<% unless rider ==  assignment[:riders].last %>
+					|
+				<% end %>
 			<% end %>
 			<hr>
 		<% end %>
