@@ -1,7 +1,12 @@
 <%= provide(:title, "Riders List") %>
 
 <h3 class="center"><strong>Total Riders: </strong><%= @riders.count %></h3>
+<div class="center">
+	<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
+</div>
 <hr>
+
+
 
 <div class="row">
 	<div class="col-md-12">
@@ -22,4 +27,8 @@
 	<%= link_to "back", assignments_path %> | 
 	<%= link_to "top" %>
 	</div>
+</div>
+
+<div class="center">
+	<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
 </div>

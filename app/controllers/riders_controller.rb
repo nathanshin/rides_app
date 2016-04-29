@@ -1,6 +1,6 @@
 class RidersController < ApplicationController
 	def index
-		@riders = Rider.ordered_by_name
+		@riders = Rider.ordered_by_name.page(params[:page]).per_page(15)
 	end
 
 	def show
@@ -14,6 +14,7 @@ class RidersController < ApplicationController
 	def create
 		@rider = Rider.new(rider_params)
 		if @rider.save
+			flash[:success] = "New rider added!"
 			render 'shared/thankyou'
 		else
 			render 'new'

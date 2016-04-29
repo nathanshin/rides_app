@@ -2,11 +2,24 @@
 	<div class="container">
 		<h1><%= yield(:title) %></h1>
 
-		<div class="btn btn-primary">
-			<%= link_to new_assignment_path  do %>
-				<span class="glyphicon glyphicon-plus-sign"></span> New Assignment
-			<% end %>
-		</div>
-
+		<% if yield(:title) == "Ride Assignments" %>
+			<div class="btn btn-primary">
+				<%= link_to new_assignment_path  do %>
+					<span class="glyphicon glyphicon-plus-sign"></span> New Assignment
+				<% end %>
+			</div>
+		<% elsif yield(:title) == "Drivers List" %>
+			<div class="btn btn-primary">
+				<%= link_to new_driver_path  do %>
+					<span class="glyphicon glyphicon-plus-sign"></span> New Driver
+				<% end %>
+			</div>
+		<% elsif yield(:title) == "Riders List" %>
+			<div class="btn btn-primary">
+				<%= link_to new_rider_path  do %>
+					<span class="glyphicon glyphicon-plus-sign"></span> New Rider
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </header>

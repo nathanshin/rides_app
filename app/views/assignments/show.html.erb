@@ -6,19 +6,42 @@
 <div class="row">
 	<div class="col-md-12">
 		<% @assignment.assignments.each do |assignment| %>
-			<strong><%= assignment[:name] %>:</strong>
+			<% if assignment[:name] == "Riders Remaining" %>
+				<div id="assignment" class='alert alert-danger'>
 
-			<% assignment[:riders].each do |rider| %>
-				<a href="/riders.html#<%= name_to_attribute(rider.name) %>">
-					<%= rider.name %>
-				</a>
-				<% unless rider ==  assignment[:riders].last %>
-					|
-				<% end %>
+					<strong><%= assignment[:name] %>:</strong>
+
+					<% assignment[:riders].each do |rider| %>
+						<a href="/riders.html#<%= name_to_attribute(rider.name) %>">
+							<%= rider.name %>
+						</a>
+						<% unless rider ==  assignment[:riders].last %>
+							|
+						<% end %>
+					<% end %>
+
+				</div>
+				<hr>
+			<% else %>
+				<div id="assignment">
+
+					<strong><%= assignment[:name] %>:</strong>
+
+					<% assignment[:riders].each do |rider| %>
+						<a href="/riders.html#<%= name_to_attribute(rider.name) %>">
+							<%= rider.name %>
+						</a>
+						<% unless rider ==  assignment[:riders].last %>
+							|
+						<% end %>
+					<% end %>
+
+				</div>
+				<hr>
 			<% end %>
-			<hr>
 		<% end %>
-		
+
 		<%= link_to "Back", assignments_path %>
+
 	</div>
 </div>

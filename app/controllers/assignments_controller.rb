@@ -23,7 +23,7 @@ class AssignmentsController < ApplicationController
 			render 'new'
 		end
 	end
-
+	
 	private
 		def assignment_params
 			params.require(:assignment).permit(:event, :date, {:included_drivers => []}, {:included_riders => []})
