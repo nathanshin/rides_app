@@ -12,13 +12,16 @@
 					<p><strong>Phone Number: </strong><%= driver.phone %></p>
 					<p><strong>Email: </strong><%= driver.email %></p>
 					<p><strong>Address: </strong><%= driver.address %></p>
-					<%= link_to "edit" %> | 
-					<%= link_to "delete", driver, method: :delete,
-																				data: { confirm: "Are you sure?" } %>
+					<% if admin_signed_in? %>
+						<%= link_to "edit" %> | 
+						<%= link_to "delete", driver, method: :delete,
+																					data: { confirm: "Are you sure?" } %>
+					<% end %>
 				</div>
 				<hr>
 			<% end %>
 		</div>
+
 		<%= link_to "back", assignments_path %> | 
 		<%= link_to "top" %>
 	</div>

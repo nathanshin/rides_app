@@ -1,7 +1,8 @@
-<%= provide(:title, "New Assignment") %>
+<%= provide(:title, "Ride Assignments") %>
+<h2>New Assignment</h2>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-10 col-md-offset-1">
 		<%= form_for(@assignment) do |f| %>
 			<% if @assignment.errors.any? %>
 				<div id="error_explanation">
@@ -21,6 +22,9 @@
 
 			<%= f.label :date %>
 			<%= f.date_field :date, class: 'form-control' %>
+
+			<%= f.label :location %>
+			<%= f.text_field :location, class: 'form-control' %>
 			
 			<div id="checklist">
 				<div class="col-md-6">
@@ -55,11 +59,13 @@
 				</div>
 			</div>
 
-			<div id="arrange-button"> 
+			<div id="form-button"> 
 				<%= f.submit "Arrange Rides!", class: 'btn btn-primary' %>
 			</div>
-		 
+
 		<% end %>
+		<hr>
+		<%= link_to "Back", root_path %>
 	</div>
 </div>
 

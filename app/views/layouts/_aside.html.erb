@@ -1,20 +1,6 @@
 <div class="col-md-4">
 	<div class="container">
 		<aside>
-			<div id="aside_nav">
-				<% unless yield(:title) == "Drivers List" || yield(:title) == "Sign Up" %>
-					<div class="btn btn-primary"><%= link_to "View all drivers", drivers_path %></div>
-				<% end %>	
-
-				<% unless yield(:title) == "Riders List" || yield(:title) == "Sign Up"%>
-					<div class="btn btn-primary"><%= link_to "View all riders", riders_path %></div>
-				<% end %>
-
-				<% unless yield(:title) == "Ride Assignments" || yield(:title) == "New Assignment" %>
-					<div class="btn btn-primary"><%= link_to "View all events", assignments_path %></div>
-				<% end %>
-			</div>
-
 			<div id="acts-home" class="center">
 				<%= link_to(image_tag("actslogo.png", size: "280x83", alt: "ACTS Austin"), "http://actsaustin.org", :target => '_blank') %>
 				<p>

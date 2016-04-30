@@ -55,8 +55,23 @@ textarea {
   background-color: $light-gray;
 }
 
+#form-button {
+  margin: 0px auto;
+  width: 200px;
+
+  .btn {
+    border-radius: 10px;
+  }
+}
+
 .alert {
   margin: 0px;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
 }
 
 /* structure */
@@ -117,6 +132,10 @@ p {
   height: 75px;
   margin-bottom: 0px;
   background-color: $darker-gray;
+}
+
+nav ul {
+  padding-top: 12px;
 }
 
 #logo {
@@ -314,11 +333,3 @@ aside {
   margin-bottom: 10px;
 }
 
-#arrange-button {
-  margin: 0px auto;
-  width: 150px;
-
-  .btn {
-    border-radius: 10px;
-  }
-}

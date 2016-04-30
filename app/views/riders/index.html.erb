@@ -17,8 +17,11 @@
 					<p><strong>Phone Number: </strong><%= rider.phone %></p>
 					<p><strong>Email: </strong><%= rider.email %></p>
 					<p><strong>Address: </strong><%= rider.address %></p>
-					<%= link_to "edit" %> | 
-					<%= link_to "delete" %>
+					<% if admin_signed_in? %>
+						<%= link_to "edit" %> | 
+						<%= link_to "delete", rider, method: :delete,
+																					data: { confirm: "Are you sure?" } %>
+					<% end %>
 				</div>
 				<hr>
 			<% end %>

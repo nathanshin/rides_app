@@ -1,5 +1,18 @@
-<nav>
-	<div class="navbar navbar-default navbar-static-top navbar-inverse">
-    <%= link_to "ACTS Rides", assignments_path, id: "logo" %>
+<div class="navbar navbar-default navbar-static-top navbar-inverse">
+	<div class="container">
+		<%= link_to "ACTS Rides", assignments_path, id: "logo" %>
+		<nav>
+		  <ul class="nav navbar-nav navbar-right">
+		  	<li><%= link_to "Assignments", assignments_path %></li>		    
+		    <li><%= link_to "Drivers", drivers_path %></li>
+		    <li><%= link_to "Riders", riders_path %></li>
+		    <% if admin_signed_in? %>
+		    	<li><%= link_to "Log out",  destroy_admin_session_path, :method => :delete %></li>
+				<% else %>
+					<li><%= link_to "Log in",  new_admin_session_path %></li>
+				<% end %>
+		  </ul>
+		</nav>
 	</div>
-</nav>
+</div>
+

@@ -1,4 +1,6 @@
 class RidersController < ApplicationController
+	before_action :authenticate_admin!, only: [:destroy]
+
 	def index
 		@riders = Rider.ordered_by_name.page(params[:page]).per_page(15)
 	end
@@ -19,6 +21,12 @@ class RidersController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def destroy
+		Rider.find(params[:id]).destroy
+    flash[:success] = "Rider deleted"
+    redirect_to riders_url
 	end
 
 	private

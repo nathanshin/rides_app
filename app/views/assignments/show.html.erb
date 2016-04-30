@@ -41,7 +41,12 @@
 			<% end %>
 		<% end %>
 
-		<%= link_to "Back", assignments_path %>
+		<%= link_to "Back", assignments_path %> 
+		<% if admin_signed_in? %>
+			 
+			| <%= link_to "Delete", @assignment, method: :delete,
+																					data: { confirm: "Are you sure?" }%>
+		<% end %>
 
 	</div>
 </div>

@@ -5,7 +5,7 @@
 <div id="events">
 	<% @assignments.each do |assignment| %>
 		<h3 id="event-name"><%= link_to assignment.event, assignment_path(assignment) %></h3>	
-		<strong><span id="location">Church, Austin, TX</span></strong>
+		<strong><span id="location"><%= assignment.location %></span></strong>
 		<p><%= assignment.date.to_formatted_s(:long) %></p>
 		<hr>
 	<% end %>

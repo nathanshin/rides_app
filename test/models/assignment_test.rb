@@ -3,7 +3,8 @@ require 'test_helper'
 class AssignmentTest < ActiveSupport::TestCase
 	def setup
 		@assignment = Assignment.new(event: "ACTS Sunday", 
-																 date: "2016-02-08", 
+																 date: "2016-02-08",
+																 location: "Church", 
 																 included_drivers: ["Nathan Shin"], 
 																 included_riders: ["Sojung Uhm"])
 	end
@@ -19,6 +20,11 @@ class AssignmentTest < ActiveSupport::TestCase
 
 	test "date should be present" do
 		@assignment.date = "   "
+		assert_not @assignment.valid?
+	end
+
+	test "location should be present" do
+		@assignment.location = "    "
 		assert_not @assignment.valid?
 	end
 

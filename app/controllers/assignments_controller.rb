@@ -1,4 +1,6 @@
 class AssignmentsController < ApplicationController
+	before_action :authenticate_admin!, only: [:new, :create, :destroy]
+
 	def index
 		@assignments = Assignment.ordered_by_date.page(params[:page]).per_page(5)
 	end
@@ -23,10 +25,16 @@ class AssignmentsController < ApplicationController
 			render 'new'
 		end
 	end
+
+	def destroy
+		Assignment.find(params[:id]).destroy
+    flash[:success] = "Driver deleted"
+    redirect_to assignments_url
+	end
 	
 	private
 		def assignment_params
-			params.require(:assignment).permit(:event, :date, {:included_drivers => []}, {:included_riders => []})
+			params.require(:assignment).permit(:event, :date, :location, {:included_drivers => []}, {:included_riders => []})
 		end
 end
 
