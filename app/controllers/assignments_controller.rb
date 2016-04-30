@@ -10,8 +10,8 @@ class AssignmentsController < ApplicationController
 	end
 
 	def new
-		@drivers = Driver.all
-		@riders = Rider.all
+		@drivers = Driver.ordered_by_name
+		@riders = Rider.ordered_by_name
 		@assignment = Assignment.new
 	end
 

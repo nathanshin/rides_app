@@ -1,6 +1,10 @@
 <%= provide(:title, "Riders List") %>
 
 <h3 class="center"><strong>Total Riders: </strong><%= @riders.count %></h3>
+<% if admin_signed_in? %>
+	<p class="center">To add new drivers, send this link: <%= link_to "http://acts-rides.herokuapp.com/signup", signup_path %></p>
+<% end %>
+
 <div class="center">
 	<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
 </div>

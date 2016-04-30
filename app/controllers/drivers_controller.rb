@@ -19,7 +19,11 @@ class DriversController < ApplicationController
 		@driver = Driver.new(driver_params)
 		if @driver.save
 			flash[:success] = "New driver added!"
-			render 'shared/thankyou'
+			if admin_signed_in?
+				redirect_to drivers_path
+			else
+				redirect_to thankyou_path
+			end
 		else
 			render 'new'
 		end
