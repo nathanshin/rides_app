@@ -18,7 +18,7 @@ class RidersController < ApplicationController
 		@rider = Rider.new(rider_params)
 		if @rider.save
 			flash[:success] = "New rider added!"
-			render 'shared/thankyou'
+			render 'user_signups/thankyou'
 		else
 			render 'new'
 		end

@@ -24,7 +24,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
 		assert_template 'riders/new'
   end
 
-	test "valid driver signup information renders 'thank you' page" do
+	test "valid driver signup information renders thank you page" do
 		get new_driver_path
 		assert_difference 'Driver.count', 1 do
 			post_via_redirect drivers_path, driver: { name: 'Nate Shin',
@@ -33,11 +33,11 @@ class UserSignupTest < ActionDispatch::IntegrationTest
 																						  	address: '911 W 21st St, Austin, TX 78705',
 																						  	car_spots: '3' }
 		end
-		assert_template 'shared/thankyou'
+		assert_template 'user_signups/thankyou'
 		assert_select 'h1', "Thank you!"
 	end
 
-	test "valid rider signup information renders 'thank you' page" do
+	test "valid rider signup information shows thank you page" do
 		get new_rider_path
 		assert_difference 'Rider.count', 1 do
 			post_via_redirect riders_path, rider: { name: 'Nate Shin',
@@ -45,7 +45,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
 																					  	phone: '214-930-8918',
 																					  	address: '911 W 21st St, Austin, TX 78705' }
 		end
-		assert_template 'shared/thankyou'
+		assert_template 'user_signups/thankyou'
 		assert_select 'h1', "Thank you!"
 	end
 end
