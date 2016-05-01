@@ -29,6 +29,20 @@ class DriversController < ApplicationController
 		end
 	end
 
+	def edit
+		@driver = Driver.find(params[:id])
+	end
+
+	def update
+    @driver = Driver.find(params[:id])
+    if @driver.update_attributes(driver_params)
+      flash[:success] = @driver.name + " has been updated!"
+      redirect_to drivers_path
+    else
+      render 'edit'
+    end
+  end
+
 	def destroy
 		Driver.find(params[:id]).destroy
     flash[:success] = "Driver deleted"

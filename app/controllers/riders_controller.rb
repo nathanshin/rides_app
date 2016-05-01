@@ -23,6 +23,20 @@ class RidersController < ApplicationController
 		end
 	end
 
+	def edit
+		@rider = Rider.find(params[:id])
+	end
+
+	def update
+    @rider = Rider.find(params[:id])
+    if @rider.update_attributes(rider_params)
+      flash[:success] = @rider.name + " has been updated!"
+      redirect_to riders_path
+    else
+      render 'edit'
+    end
+  end
+
 	def destroy
 		Rider.find(params[:id]).destroy
     flash[:success] = "Rider deleted"

@@ -1,0 +1,39 @@
+<%= provide(:title, "Update") %>
+
+<h2>Edit Rider</h2>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<%= form_for(@rider) do |f| %>
+			<% if @rider.errors.any? %>
+				<div id="error_explanation">
+					<div class="alert alert-danger">
+						The form contains <%= pluralize(@rider.errors.count, "error") %>.
+					</div>
+					<ul>
+						<% @rider.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :email %>
+			<%= f.email_field :email, class: 'form-control' %>
+
+			<%= f.label :phone %>
+			<%= f.phone_field :phone, class: 'form-control' %>
+			
+		  <%= f.label "Address" %>
+		  <%= f.text_field :address, class: 'form-control' %>
+		
+			<div id="form-button">
+				<%= f.submit "Update rider!", class: 'btn btn-primary' %>
+			</div>
+		<% end %>
+
+		<%= link_to "Back", riders_path %>
+	</div>
+</div>

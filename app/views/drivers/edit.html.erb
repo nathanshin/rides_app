@@ -1,0 +1,41 @@
+<%= provide(:title, "Update") %>
+
+<h2>Edit Driver</h2>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<%= form_for(@driver) do |f| %>
+			<% if @driver.errors.any? %>
+				<div id="error_explanation">
+					<div class="alert alert-danger">
+						The form contains <%= pluralize(@driver.errors.count, "error") %>.
+					</div>
+					<ul>
+						<% @driver.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :email %>
+			<%= f.email_field :email, class: 'form-control' %>
+
+			<%= f.label :phone %>
+			<%= f.phone_field :phone, class: 'form-control' %>
+			
+		  <%= f.label "Address" %>
+		  <%= f.text_field :address, class: 'form-control' %>
+		
+		  <%= f.label :car_spots %>
+		  <%= f.select :car_spots, ['1', '2', '3', '4', '5', '6']%>
+			<div id="form-button">
+				<%= f.submit "Update driver!", class: 'btn btn-primary' %>
+			</div>
+		<% end %>
+
+		<%= link_to "Back", drivers_path %>
+	</div>
+</div>

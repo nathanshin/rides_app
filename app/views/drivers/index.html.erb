@@ -16,7 +16,7 @@
 					<p><strong>Email: </strong><%= driver.email %></p>
 					<p><strong>Address: </strong><%= driver.address %></p>
 					<% if admin_signed_in? %>
-						<%= link_to "edit" %> | 
+						<%= link_to "edit", edit_driver_path(driver) %> | 
 						<%= link_to "delete", driver, method: :delete,
 																					data: { confirm: "Are you sure?" } %>
 					<% end %>

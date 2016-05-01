@@ -1,10 +1,13 @@
 class Rider < ActiveRecord::Base
+	include ActionView::Helpers::NumberHelper
+
 	scope :ordered_by_name, -> { order(name: :asc) }
 
 	attr_accessor :distance_to_driver
 
 	before_save :update_geocode
 	before_save { email.downcase! }
+	before_save :format_phone
 
 	validates :name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -19,5 +22,9 @@ class Rider < ActiveRecord::Base
 
 	def geocoder
 		Geocoder.new(self)
+	end
+
+	def format_phone
+		self[:phone] = number_to_phone(phone)
 	end
 end
