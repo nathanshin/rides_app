@@ -2,7 +2,8 @@ class RidersController < ApplicationController
 	before_action :authenticate_admin!, only: [:destroy]
 
 	def index
-		@riders = Rider.ordered_by_name.page(params[:page]).per_page(15)
+		@riders = Rider.ordered_by_name
+		# .page(params[:page]).per_page(15)
 	end
 
 	def show

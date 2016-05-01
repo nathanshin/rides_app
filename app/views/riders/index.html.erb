@@ -5,12 +5,7 @@
 	<p class="center">To add new drivers, send this link: <%= link_to "http://acts-rides.herokuapp.com/signup", signup_path %></p>
 <% end %>
 
-<div class="center">
-	<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
-</div>
 <hr>
-
-
 
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
@@ -34,8 +29,4 @@
 	<%= link_to "back", assignments_path %> | 
 	<%= link_to "top" %>
 	</div>
-</div>
-
-<div class="center">
-	<%= will_paginate @assignments, renderer: BootstrapPagination::Rails %>		
 </div>

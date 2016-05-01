@@ -4,7 +4,8 @@ class DriversController < ApplicationController
 	include DriversHelper
 
 	def index
-		@drivers = Driver.ordered_by_name.page(params[:page]).per_page(10)
+		@drivers = Driver.ordered_by_name
+		# .page(params[:page]).per_page(10)
 	end
 
 	def show
