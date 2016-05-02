@@ -2,6 +2,7 @@ class AssignmentsController < ApplicationController
 	before_action :authenticate_admin!, only: [:new, :create, :destroy]
 
 	def index
+		@riders = Rider.all
 		@assignments = Assignment.ordered_by_date.page(params[:page]).per_page(5)
 	end
 
