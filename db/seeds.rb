@@ -28,7 +28,7 @@
 #                 address: address)
 # end
 
-# 30.times do |n|
+# 10.times do |n|
 #   name  = "Jester-#{n+1}"
 #   email = "jester-#{n+20}@example.org"
 #   phone = "2149308918"
@@ -50,7 +50,7 @@
 #                 address: address)
 # end
 
-# 20.times do |n|
+# 10.times do |n|
 #   name  = "Quarters-#{n+1}"
 #   email = "quarters-#{n+1}@example.org"
 #   phone = "2149308918"
@@ -61,7 +61,7 @@
 #                 address: address)
 # end
 
-# 11.times do |n|
+# 10.times do |n|
 #   name  = "Pearl-#{n+1}"
 #   email = "pearl-driver-#{n+20}@example.org"
 #   phone = "2149308918"

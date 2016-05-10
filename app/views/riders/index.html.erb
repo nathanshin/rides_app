@@ -3,6 +3,8 @@
 <h3 class="center"><strong>Total Riders: </strong><%= @riders.count %></h3>
 <% if admin_signed_in? %>
 	<p class="center">To add new drivers, send this link: <%= link_to "http://acts-rides.herokuapp.com/signup", signup_path %></p>
+<% else %>
+	<p class="center">Click here to sign up: <%= link_to "http://acts-rides.herokuapp.com/signup", signup_path %></p>
 <% end %>
 <hr>
 
