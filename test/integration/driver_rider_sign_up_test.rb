@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class DriverRiderSignUpTest < ActionDispatch::IntegrationTest
-	
+	def setup
+		
+	end
+
 	test "invalid driver signup renders new" do
 		get new_driver_path
 		assert_template 'drivers/new'
@@ -35,7 +38,7 @@ class DriverRiderSignUpTest < ActionDispatch::IntegrationTest
 																							  address: '911 W 21st St, Austin, TX 78705',
 																								car_spots: '3' }
 		end
-		assert_template 'shared/thankyou'
+		assert_template 'user_signups/thankyou'
 		assert_select 'div.alert', "New driver added!"
 		get new_assignment_path
 		assert_select 'input[value="Nate Shin"]'
@@ -48,9 +51,9 @@ class DriverRiderSignUpTest < ActionDispatch::IntegrationTest
 			post_via_redirect riders_path, rider: { name: 'Nate Shin',
 																							email: 'nate@nate.com',
 																							phone: '214-930-8918',
-																						  address: '911 W 21st St, Austin, TX 78705'}
+																						  address: '911 W 21st St, Austin, TX 78705' }
 		end
-		assert_template 'shared/thankyou'
+		assert_template 'user_signups/thankyou'
 		assert_select 'div.alert', "New rider added!"
 		get new_assignment_path
 		assert_select 'input[value="Nate Shin"]'
