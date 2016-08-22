@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
-	before_action :authenticate_admin!, only: [:destroy]
+	before_action :authenticate_admin!, only: [:index, :destroy]
 	
 	include DriversHelper
 

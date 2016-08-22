@@ -37,7 +37,7 @@
 					
 					<% @drivers.each do |driver| %>
 						<%= f.label :driver, class: "checkbox inline" do %>
-							<%= f.check_box :included_drivers, {multiple: true}, driver.name, nil %>
+							<%= f.check_box :included_drivers, {multiple: true}, YAML::dump(driver), nil %>
 							<span><strong><%= driver.name %></strong></span>
 						<% end %>
 					<% end %>
@@ -53,10 +53,8 @@
 					</button>
 
 					<% @riders.each do |rider| %>
-						<%= f.label rider.name, class: "checkbox inline" do %>
-							<%= f.check_box :included_riders, {multiple: true}, rider.name, nil %>
-							<span><strong><%= rider.name %></strong></span>					
-						<% end %>
+						<%= f.check_box :included_riders, {multiple: true}, YAML::dump(rider), nil %>
+						<%= f.label rider.name, class: "checkbox inline" %>
 					<% end %>				
 				</div>
 			</div>

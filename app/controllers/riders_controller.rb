@@ -1,5 +1,5 @@
 class RidersController < ApplicationController
-	before_action :authenticate_admin!, only: [:destroy]
+	before_action :authenticate_admin!, only: [:index, :destroy]
 
 	def index
 		@riders = Rider.ordered_by_name

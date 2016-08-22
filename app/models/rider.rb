@@ -1,9 +1,8 @@
 class Rider < ActiveRecord::Base
 	include ActionView::Helpers::NumberHelper
+	attr_accessor :distance_to_driver
 
 	scope :ordered_by_name, -> { order(name: :asc) }
-
-	attr_accessor :distance_to_driver
 
 	before_save :update_geocode
 	before_save { email.downcase! }
@@ -16,6 +15,7 @@ class Rider < ActiveRecord::Base
 										uniqueness: { case_sensitive: false }
 	validates :phone, presence: true
 	validates :address, presence: true
+
 
 	serialize :geocode
 	delegate :update_geocode, to: :geocoder

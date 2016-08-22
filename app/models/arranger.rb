@@ -10,25 +10,23 @@ class Arranger
 		@riders = []
 		@assignment.assignments = []
 		
-		pull_drivers_from_database
-		pull_riders_from_database
+		deserialize_drivers
+		deserialize_riders
 		assign_riders_to_drivers
 	end
-
+	
 	# Maybe change the implementation to map?
-	def pull_drivers_from_database
+	def deserialize_drivers
 		@included_drivers.each do |included_driver|
-			if (driver = Driver.find_by(name: included_driver))
-				@drivers << driver
-			end
+			driver = YAML::load(included_driver)
+			@drivers << driver
 		end
 	end
 
-	def pull_riders_from_database
+	def deserialize_riders
 		@included_riders.each do |included_rider|
-			if (rider = Rider.find_by(name: included_rider))
-				@riders << rider
-			end
+			rider = YAML::load(included_rider)
+			@riders << rider
 		end
 	end
 

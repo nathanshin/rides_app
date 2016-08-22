@@ -1,5 +1,6 @@
 class Driver < ActiveRecord::Base
 	include ActionView::Helpers::NumberHelper
+	
 
 	scope :ordered_by_name, -> { order(name: :asc) }
 

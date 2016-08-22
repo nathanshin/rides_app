@@ -11,8 +11,6 @@ class Assignment < ActiveRecord::Base
 	validates :included_riders, presence: true
 
 	serialize :assignments
-	serialize :included_drivers
-	serialize :included_riders
 
 	before_save :arrange_rides
 	delegate :arrange_rides, to: :arranger
